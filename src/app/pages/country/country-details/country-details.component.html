@@ -1,0 +1,30 @@
+<div>
+  <div>Country Name : {{ countryData?.name }}</div>
+  <div class="item mui-textfield mui-textfield--float-label">
+    <input placeholder="City Name" #InputCity />
+    <button
+      class="mui-btn mui-btn--primary mui-btn--raised"
+      (click)="addCity(InputCity.value, countryID)"
+    >
+      Add city
+    </button>
+    <div
+      *ngFor="let city of cityData"
+      class="item mui-textfield mui-textfield--float-label"
+    >
+      <input value="{{ city.name }}" #editInput />
+      <button
+        class="mui-btn mui-btn--primary mui-btn--raised"
+        (click)="deleteCity(city.id)"
+      >
+        Delete
+      </button>
+      <button
+        class="mui-btn mui-btn--primary mui-btn--raised"
+        (click)="editCity(city.id, editInput.value, countryID)"
+      >
+        Submit
+      </button>
+    </div>
+  </div>
+</div>

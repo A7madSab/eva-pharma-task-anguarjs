@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="item">
+    <input placeholder="add country" #inputData />
+    <button
+      class="mui-btn mui-btn--primary mui-btn--raised"
+      (click)="addCountry(inputData.value)"
+    >
+      Add
+    </button>
+  </div>
+
+  <div
+    class="item"
+    *ngFor="let country of countries"
+    class="mui-textfield mui-textfield--float-label"
+  >
+    {{ country.id }}
+    <input value="{{ country.name }}" [disabled]="country.edit" #editInput />
+    <button
+      class="mui-btn mui-btn--primary mui-btn--raised"
+      routerLink="{{ country.id }}"
+    >
+      View
+    </button>
+    <button
+      class="mui-btn mui-btn--primary mui-btn--raised"
+      *ngIf="country.edit"
+      (click)="setEditCountry(country.id)"
+    >
+      Edit
+    </button>
+    <button
+      class="mui-btn mui-btn--primary mui-btn--raised"
+      *ngIf="!country.edit"
+      (click)="editCountry(country.id, editInput.value)"
+    >
+      Submit
+    </button>
+    <button
+      class="mui-btn mui-btn--primary mui-btn--raised"
+      (click)="deleteCountry(country.id)"
+    >
+      Delete
+    </button>
+  </div>
+</div>

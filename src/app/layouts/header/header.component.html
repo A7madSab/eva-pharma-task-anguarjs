@@ -1,0 +1,19 @@
+<div class="header__container">
+  <a class="link__title" routerLinkActive="active" routerLink="/">EvaPharma</a>
+  <button
+    class="mui-btn mui-btn--primary mui-btn--raised"
+    class="button"
+    *ngIf="isAuthenticated"
+    (click)="logout()"
+  >
+    LOGOUT
+  </button>
+  <div
+    class="button"
+    style="padding-block: 1.5rem"
+    routerLinkActive="active"
+    *ngIf="!isAuthenticated"
+  >
+    <a routerLink="/login">LOGIN</a>
+  </div>
+</div>
